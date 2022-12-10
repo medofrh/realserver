@@ -2,6 +2,11 @@ const express = require ("express");
 const app = express();
 const cors = require ("cors");
 const API_houses = require("./api/houses");
+const API_campaigns = require("./api/campaigns");
+const API_login = require("./api/login");
+const API_persons = require("./api/persons");
+const API_storage = require("./api/storage");
+const API_transferlog = require("./api/transferlog");
 
 const port = process.env.PORT || "3030";
 
@@ -21,6 +26,11 @@ app.use(express.urlencoded({ extended: true }));
 //     res.status(200).json({ message: "Welcome to bezkoder application." });
 // });
 app.use("/",API_houses);
+app.use("/",API_campaigns);
+app.use("/",API_login);
+app.use("/",API_persons);
+app.use("/",API_storage);
+app.use("/",API_transferlog);
 
 app.use(function(req,res){
     res.status(404).json({ message: "Sorry we can't find this page!"});
