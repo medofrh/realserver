@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mavi kelebek</title>
+        <!-- ================== GOOGLE FONTS ==================-->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+        <!-- ======================= GLOBAL VENDOR STYLES ========================-->
+        <link rel="stylesheet" href="../assets/css/vendor/bootstrap.css">
+        <link rel="stylesheet" href="../assets/vendor/metismenu/dist/metisMenu.css">
+        <link rel="stylesheet" href="../assets/vendor/switchery-npm/index.css">
+        <link rel="stylesheet" href="../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+        <!-- ======================= LINE AWESOME ICONS ===========================-->
+        <link rel="stylesheet" href="../assets/css/icons/line-awesome.min.css">
+        <!-- ======================= DRIP ICONS ===================================-->
+        <link rel="stylesheet" href="../assets/css/icons/dripicons.min.css">
+        <!-- ======================= MATERIAL DESIGN ICONIC FONTS =================-->
+        <link rel="stylesheet" href="../assets/css/icons/material-design-iconic-font.min.css">
+        <!-- ======================= GLOBAL COMMON STYLES ============================-->
+        <link rel="stylesheet" href="../assets/css/common/main.bundle.css">
+        <!-- ======================= LAYOUT TYPE ===========================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/core/main.css">
+        <!-- ======================= MENU TYPE ===========================================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/menu-type/default.css">
+        <!-- ======================= THEME COLOR STYLES ===========================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/themes/theme-j.css">
+
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/vendor/bootstrap/dist/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="content-wrapper">
+                <div class="content" data-layout="tabbed">
+                    <header class="page-header">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h1 id="logoo">mavi kelebek</h1> 
+                            </div>
+                    <div>
+                        <button type="button" class="btn btn-default btn-danger" id="Logout">Logout</button>
+                    </div>
+                        </div>
+                    </header>
+                    <!-- <div class="page-content container-fluid">
+                    </div> -->
+                    <div class="card m-5"> 
+                        <section class="page-content container-fluid"> 
+                            <div class="ml-5">
+                                <button type="button" class="btn btn-secondary back-btn">Back</button>
+                            </div>
+                            <div class="text-center mt-4">
+                                <h1>Delete</h1>
+                            </div>
+                            <div class="row p-25 ml-3 justify-content-md-center" id="HousesTable"> 
+                            </div>                             
+                        </section>
+                        <div class="container mb-4">
+                            <div class="row justify-content-md-center">
+                                <div class="col-sm-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <button type="button" class="btn btn-danger btn-block btn-house" onclick="housedel()">delete</button>
+                                </div>
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="modal fade" id="deletehouse" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalTitle1">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>seçtiklerinizi silmek üzeresiniz silmek istediğinizden emin misiniz<br></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-outline-secondary btn-block" data-dismiss="modal">hayır</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-danger btn-block">Evet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SIDEBAR QUICK PANNEL WRAPPER -->
+                </div>
+            </div>
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+            <!-- <script src="./assets/js/global/pages.js"></script> -->
+            <script src="./assets/js/check.js"></script>
+            <script src="./assets/js/housedelete.js"></script>
+    </body>
+</html>

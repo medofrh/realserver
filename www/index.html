@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mavi kelebek</title>
+        <!-- ================== GOOGLE FONTS ==================-->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+        <!-- ================== stylesheet ==================-->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- ================== bootstrap 4 ==================-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="content" data-layout="tabbed"> 
+            <header class="page-header"> 
+                <div class="d-flex align-items-center "> 
+                    <div class="mr-auto"> 
+                        <h1 id="logoo">mavi kelebek</h1> 
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-default btn-danger" id="Logout">Logout</button>
+                    </div>                     
+                </div>                 
+                <ul class="nav nav-tabs"> 
+                    <li class="nav-item" role="presentation"> 
+                        <a href="#tab-1" class="nav-link active show" data-toggle="tab" aria-expanded="true">zones<br></a> 
+                    </li>                     
+                    <li class="nav-item" role="presentation"> 
+                        <a href="#tab-2" class="nav-link" data-toggle="tab" aria-expanded="true">campaign</a> 
+                    </li>
+                    <li class="nav-item" role="presentation"> 
+                        <a href="#tab-3" class="nav-link" data-toggle="tab" aria-expanded="true">depot<br></a> 
+                    </li>                     
+                </ul>                 
+            </header>             
+            <section class="page-content container-fluid"> 
+                <div class="row"> 
+                    <div class="col-12"> 
+                        <div class="tab-content"> 
+                            <div class="tab-pane fadeIn active" id="tab-1"> 
+                                <div class="card p-5">
+                                    <div>
+                                        <h3 class="p-3 pt-2" style="text-align:center;">Bartin</h3>
+                                    </div>
+                                    <div class="col-12 zone-card" id="zones-page">
+                                        <button type="button" class="btn btn-secondary btn-block" onclick="ZoneRequest('N')">Northern zone</button>
+                                        <button type="button" class="btn btn-secondary btn-block" onclick="ZoneRequest('E')">Eastern Zone</button>
+                                        <button type="button" class="btn btn-secondary btn-block" onclick="ZoneRequest('W')">Western Zone</button>
+                                        <button type="button" class="btn btn-secondary btn-block" onclick="ZoneRequest('S')">Southern Zone</button>
+                                    </div>                                     
+                                </div>                                 
+                            </div>                             
+                            <div class="tab-pane fadeIn" id="tab-2"> 
+                                <div class="card p-5">
+                                    <div>
+                                        <h3 class="p-8 pt-2" style="text-align:center;">Bartin</h3>
+                                    </div>
+                                    <div class="col-12 zone-card">
+                                        <button type="button" class="btn btn-secondary btn-block" id="campaignaddbtn">Add a campaign</button>
+                                        <button type="button" class="btn btn-secondary btn-block" id="campaignsnowbtn">Now campaigns</button>
+                                        <button type="button" class="btn btn-secondary btn-block" id="campaignsendedbtn">Campaigns ended</button>
+                                    </div>                                     
+                                </div>                                 
+                            </div>
+                            <div class="tab-pane fadeIn" id="tab-3"> 
+                                <div class="card p-5">
+                                    <div>
+                                        <h3 class="p-8 pt-2" style="text-align:center;">Bartin</h3>
+                                    </div>
+                                    <div class="col-12 zone-card">
+                                        <button type="button" class="btn btn-secondary btn-block"
+                                        id="addtostorebtn">Add to store</button>
+                                        <button type="button" class="btn btn-secondary btn-block" id="storeinfobtn">The store</button>
+                                    </div>                                     
+                                </div>                                 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                </div>                 
+            </section>             
+        </div>
+        <!-- ================== jquery ==================-->
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+        <!-- ================== bootstrap js ==================-->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+        <!-- ================== check js for checking session ==================-->
+        <script src="./assets/js/check.js"></script>
+        <!-- ================== index js for this page ==================-->
+        <script src="./assets/js/index.js"></script>
+    </body>
+</html>

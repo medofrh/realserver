@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-16">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mavi kelebek</title>
+        <!-- ================== GOOGLE FONTS ==================-->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+        <!-- ======================= GLOBAL VENDOR STYLES ========================-->
+        <link rel="stylesheet" href="../assets/css/vendor/bootstrap.css">
+        <link rel="stylesheet" href="../assets/vendor/metismenu/dist/metisMenu.css">
+        <link rel="stylesheet" href="../assets/vendor/switchery-npm/index.css">
+        <link rel="stylesheet" href="../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+        <!-- ======================= LINE AWESOME ICONS ===========================-->
+        <link rel="stylesheet" href="../assets/css/icons/line-awesome.min.css">
+        <!-- ======================= DRIP ICONS ===================================-->
+        <link rel="stylesheet" href="../assets/css/icons/dripicons.min.css">
+        <!-- ======================= MATERIAL DESIGN ICONIC FONTS =================-->
+        <link rel="stylesheet" href="../assets/css/icons/material-design-iconic-font.min.css">
+        <!-- ======================= GLOBAL COMMON STYLES ============================-->
+        <link rel="stylesheet" href="../assets/css/common/main.bundle.css">
+        <!-- ======================= LAYOUT TYPE ===========================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/core/main.css">
+        <!-- ======================= MENU TYPE ===========================================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/menu-type/default.css">
+        <!-- ======================= THEME COLOR STYLES ===========================-->
+        <link rel="stylesheet" href="../assets/css/layouts/vertical/themes/theme-j.css">
+
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/vendor/bootstrap/dist/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="content-wrapper">
+                <div class="content" data-layout="tabbed">
+                    <header class="page-header">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h1 id="logoo">mavi kelebek</h1> 
+                            </div>
+                    <div>
+                        <button type="button" class="btn btn-default btn-danger" id="Logout">Logout</button>
+                    </div>
+                        </div>
+                    </header>
+                    <!-- <div class="page-content container-fluid">
+                    </div> -->
+                    <div class="card m-5"> 
+                        <section class="page-content container-fluid"> 
+                            <div class="ml-5">
+                                <button type="button" class="btn btn-secondary back-btn">Back</button>
+                            </div>
+                            <div>
+                                <h1>Add to depot</h1>
+                            </div>
+                            <div class="col-16 p-25 ml-3" style="text-align:center;">
+                                <form class="form-horizontal" id="new-items">
+                                    <div class="form-group">
+                                        <select class="custom-select" id="s-type" required>
+                                          <option value="">Open this select menu</option>
+                                          <option value="I">esya</option>
+                                          <option value="F">gida kumanyasi</option>
+                                          <option value="M">para</option>
+                                        </select>
+                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="defaultInput">item</label>
+                                        <input class="form-control" type="text" placeholder="item" id="s-item" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="defaultInput">count</label>
+                                        <input class="form-control" type="text" placeholder="count" id="s-count" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="defaultInput">entry date</label>
+                                        <input class="form-control" type="date" data-date-format="DD MMMM YYYY" placeholder="entry date" id="s-edate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="defaultInput">Release date</label>
+                                        <input class="form-control" type="date" placeholder="Release date" id="s-rdate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="defaultInput">note</label>
+                                        <input class="form-control" type="text" placeholder="note" id="s-note" >
+                                    </div>
+                                    <div class="form-group" style="text-align:center;">
+                                        <button type="submit" class="btn btn-info btn-block btn-house" >Add</button>
+                                    </div>                             
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SIDEBAR QUICK PANNEL WRAPPER -->
+                </div>
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+            <script src="./assets/js/pages.js"></script>
+            <script src="./assets/js/check.js"></script>
+            <script src="./assets/js/storgeadd.js"></script>
+    </body>
+</html>

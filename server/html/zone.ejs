@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	img{
+		height: 200px;
+		width: 200px;
+	}
+	#details{
+		text-align: right;
+		margin-top: 70px;
+	}
+	#txt{
+		margin-bottom: -5px;
+	}
+</style>
+<div>
+	<div class="container">
+    <div class="row">
+    <div class="col-6">
+    	<div class="row">
+	      	<div class="col-4 mr-3">
+	      		<img src="https://www.udef.org.tr/media/associations/81.png">
+	      	</div>
+	      	<div class="col-6 mt-2">
+	      		<span>&nbsp;</span>
+	      		<br>
+	      		<span>&nbsp;</span>
+	      		<br>
+	      		<span>&nbsp;</span>
+	      		<br>
+    	  	<h3>Mavi kelebek</h3>
+    	  	</div>
+    	</div>
+    </div>
+    <div class="col-6">
+    	<div id="details">
+    		<p id="txt">MAVİ KELEBEK UÖD</p>
+    		<p id="txt">KemerkOpru Mah. Sadirvan Cad.</p>
+    		<p id="txt">Kulaklar is merkezi no: 5</p>
+    		<p id="txt">Turkey, bartin 74100</p>
+    	</div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="mt-5">
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">house name</th>
+        <th scope="col">population</th>
+        <th scope="col">coordinates</th>
+        <th scope="col">address</th>
+        <th scope="col">Road definition</th>
+      </tr>
+    </thead>
+    <tbody>
+		<% for(var i=0; i < datax.length; i++) { %>
+        <tr>
+            <td scope="row"><p><%=i+1%></p></td>
+			<td class=""><P class="ft2"><%= datax[i].houseName %></P></td>
+			<td class=""><P class="ft2"><%= datax[i].personCount %></P></td>
+			<td class=""><P class="ft2"><%= datax[i].addresses.coordinates %></P></td>
+			<td class=""><P class="ft2"><%= datax[i].addresses.addressetxt %></P></td>
+			<td class=""><P class="ft2"><%= datax[i].addresses.road %></P></td>
+        </tr>
+		<% } %>
+    </tbody>
+  </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

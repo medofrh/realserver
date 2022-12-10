@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	img{
+		height: 200px;
+		width: 200px;
+	}
+	#details{
+		text-align: right;
+		margin-top: 70px;
+	}
+	#txt{
+		margin-bottom: -5px;
+	}
+</style>
+	<div class="container">
+    <div class="row">
+    <div class="col-6">
+    	<div class="row">
+	      	<div class="col-4 mr-3">
+	      		<img src="https://www.udef.org.tr/media/associations/81.png">
+	      	</div>
+	      	<div class="col-6 mt-2">
+	      		<span>&nbsp;</span>
+	      		<br>
+	      		<span>&nbsp;</span>
+	      		<br>
+	      		<span>&nbsp;</span>
+	      		<br>
+    	  	<h3>Mavi kelebek</h3>
+    	  	</div>
+    	</div>
+    </div>
+    <div class="col-6">
+    	<div id="details">
+    		<p id="txt">MAVİ KELEBEK UÖD</p>
+    		<p id="txt">KemerkOpru Mah. Sadirvan Cad.</p>
+    		<p id="txt">Kulaklar is merkezi no: 5</p>
+    		<p id="txt">Turkey, bartin 74100</p>
+    	</div>
+    </div>
+  </div>
+  <div class="container mt-5">  
+    <div class="row">
+          <div class="col-3 pt-3 pb-3">
+            <% if(zone=='N'){ %>
+              <p class="text-center txt">zone: north zone</p>
+            <% }else if(zone=='S'){ %>
+              <p class="text-center txt">zone: South zone</p>
+            <% }else if(zone=='W'){ %>
+              <p class="text-center txt">zone: west zone</p>
+            <% }else if(zone=='E'){ %>
+              <p class="text-center txt">zone: east zone</p>
+            <% } %>
+          </div>
+          <div class="col-3 pt-3 pb-3">
+              <p class="text-center txt">nationality: <%= nationality %></p>
+          </div>
+          <div class="col-3 pt-3 pb-3">
+              <p class="text-center txt">sex: <%= sex %></p>
+          </div>
+          <div class="col-3 pt-3 pb-3">
+            <% if(priority=='0'){ %>
+              <p class="text-center txt">priority: no</p>
+            <% }else if(priority=='1'){ %>
+              <p class="text-center txt">priority: yes</p>
+            <% } %>
+          </div> 
+    </div>
+  </div>
+  </div>
+<div class="mt-4">
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Zone</th>
+        <th scope="col" class="text-center">House Name</th>
+        <th scope="col" class="text-center">Full Name</th>
+        <th scope="col" class="text-center">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i=0;i < data.length;i++){ %>
+        <tr>
+          <% data[i].person.forEach(element => { %>
+            <% if(element._id!==undefined){ %>
+              <td><p class="ft2 text-center"></p></td>
+              <td>
+                <% if(zone=='N'){ %>
+                  <p class="ft2 text-center">north zone</p>
+                <% }else if(zone=='S'){ %>
+                  <p class="ft2 text-center">South zone</p>
+                <% }else if(zone=='W'){ %>
+                  <p class="ft2 text-center">west zone</p>
+                <% }else if(zone=='E'){ %>
+                  <p class="ft2 text-center">east zone</p>
+                <% } %>
+              </td>
+              <td><p class="ft2 text-center"><%= data[i].housename %></p></td>
+              <td><p class="ft2 text-center"><%= element.fullname %></p></td>
+              <td><p class="ft2 text-center"><%= element.phonenummber %></p></td>
+            <% } %>
+          <% }); %>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
