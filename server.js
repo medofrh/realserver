@@ -1,11 +1,12 @@
 const express = require ("express");
 const app = express();
 const cors = require ("cors");
+const API_houses = require("./api/houses");
 
 const port = process.env.PORT || "3030";
 
 var corsOptions = {
-origin: "http://localhost:8081"
+    origin: "http://localhost:3030"
 };
 
 app.use(cors(corsOptions));
@@ -16,9 +17,10 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', function (req, res) {
-    res.status(200).json({ message: "Welcome to bezkoder application." });
-});
+// app.get('/', function (req, res) {
+//     res.status(200).json({ message: "Welcome to bezkoder application." });
+// });
+app.use("/",API_houses);
 
 app.use(function(req,res){
     res.status(404).json({ message: "Sorry we can't find this page!"});
