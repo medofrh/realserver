@@ -3,7 +3,6 @@ const Router = express.Router();
 const Users = require("../models/users");
 
 require("../db_connection/db");
-const close_connection = require("../db_connection/db");
 const generateAccesstoken = require("../db_connection/db");
 
 Router.get('/login',function (req,res){
@@ -52,6 +51,7 @@ Router.get('/login',function (req,res){
             .catch(err=>{
                 res.status(401).send(err)
             })
+            
         }
     })
     }else{

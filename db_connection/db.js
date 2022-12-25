@@ -9,12 +9,6 @@ db.once('open', function callback () {
   console.log("the connection is open!");
 });
 
-module.exports = function close_connection() {
-    mongoose.connection.close();
-    console.log("DB has been closed :)");
-};
-
-
 module.exports = function generateAccesstoken(user) {
     return jwt.sign(user , process.env.ACCESS_TOKEN_SECRET,{expiresIn:'86400s'})
 }
