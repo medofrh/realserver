@@ -19,7 +19,8 @@ var users = Schema ({
                 type: String,
                 required: true
         },token:{
-                type: String
+                type: String,
+                unique: true
         }})
 
 module.exports=mongoose.model('users',users);

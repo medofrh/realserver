@@ -1,8 +1,10 @@
 const express = require ("express");
 const app = express();
 const cors = require ("cors");
+
 const API_login = require("./api/login");
 const API_signin = require("./api/signin");
+const API_logout = require("./api/logout");
 const API_check = require("./api/check");
 const API_houses = require("./api/houses");
 const API_campaigns = require("./api/campaigns");
@@ -29,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 // });
 app.use("/",API_login);
 app.use("/",API_signin);
+app.use("/",API_logout);
 app.use("/",API_check);
 app.use("/",API_houses);
 app.use("/",API_campaigns);
