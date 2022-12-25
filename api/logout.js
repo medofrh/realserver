@@ -10,7 +10,7 @@ Router.post("/logout",function(req,res){
     const token = authHeader && authHeader.split(' ')[1];
 
     if(token == null){
-        res.sendStatus(401);
+        res.sendStatus(403);
     }else{
         Users.findOneAndUpdate({token:token}, {$set:{token:""}}, {new: true}, (err, doc) => {
             if (err == null) {
