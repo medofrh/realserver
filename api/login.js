@@ -5,7 +5,7 @@ const Users = require("../models/users");
 require("../db_connection/db");
 const generateAccesstoken = require("../db_connection/db");
 
-Router.get('/login',function (req,res){
+Router.post('/login',function (req,res){
     const user = req.body.username
     const pass = req.body.password
 
