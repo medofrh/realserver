@@ -3,7 +3,7 @@ const Router = express.Router();
 const Users = require("../models/users");
 
 require("../db_connection/db");
-const generateAccesstoken = require("../db_connection/db");
+const token = require("../db_connection/db");
 
 Router.post('/login',function (req,res){
     const user = req.body.username
@@ -35,7 +35,7 @@ Router.post('/login',function (req,res){
             var userID = user._id;
             var userData = {name:user.username};
     
-            const accessToken=generateAccesstoken(userData);
+            const accessToken=token.generateAccesstoken(userData);
             
             Users
             .findByIdAndUpdate({_id:userID},{token:accessToken})

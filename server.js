@@ -1,10 +1,11 @@
 const express = require ("express");
 const app = express();
 const cors = require ("cors");
-const API_houses = require("./api/houses");
-const API_campaigns = require("./api/campaigns");
 const API_login = require("./api/login");
 const API_signin = require("./api/signin");
+const API_check = require("./api/check");
+const API_houses = require("./api/houses");
+const API_campaigns = require("./api/campaigns");
 const API_persons = require("./api/persons");
 const API_storage = require("./api/storage");
 const API_transferlog = require("./api/transferlog");
@@ -15,7 +16,7 @@ var corsOptions = {
     origin: "http://localhost:3030"
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -26,10 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 // app.get('/', function (req, res) {
 //     res.status(200).json({ message: "Welcome to bezkoder application." });
 // });
-app.use("/",API_houses);
-app.use("/",API_campaigns);
 app.use("/",API_login);
 app.use("/",API_signin);
+app.use("/",API_check);
+app.use("/",API_houses);
+app.use("/",API_campaigns);
 app.use("/",API_persons);
 app.use("/",API_storage);
 app.use("/",API_transferlog);

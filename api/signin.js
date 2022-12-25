@@ -3,7 +3,7 @@ const Router = express.Router();
 const Users = require("../models/users");
 
 require("../db_connection/db");
-const generateAccesstoken = require("../db_connection/db");
+const token = require("../db_connection/db");
 
 Router.post('/signin',function(req,res){
     const user = req.body.username
@@ -18,7 +18,7 @@ Router.post('/signin',function(req,res){
         data = {
             username:username,
             password:password,
-            token:generateAccesstoken({username:username})
+            token:token.generateAccesstoken({username:username})
         }
         Users.create(data,function(err,result){
             if (err) {
