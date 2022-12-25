@@ -1,4 +1,6 @@
 const mongoose = require ('mongoose');
+const jwt = require ("jsonwebtoken");
+require("dotenv").config();
 
 mongoose.connect('mongodb://medo:M6e3d3o6@127.0.0.1:27017/medo?connectTimeoutMS=1000&authSource=admin');
 var db = mongoose.connection;
@@ -12,13 +14,14 @@ module.exports = function close_connection() {
     console.log("DB has been closed :)");
 };
 
-/*
-function generateAccesstoken(user) {
+
+module.exports = function generateAccesstoken(user) {
     return jwt.sign(user , process.env.ACCESS_TOKEN_SECRET,{expiresIn:'86400s'})
 }
+
 function authenticatetoken(req,res,next){
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
 
     if(token == null){
         res.sendStatus(401)
@@ -64,4 +67,3 @@ function authenticatetoken(req,res,next){
         })
     }
 }
-*/
