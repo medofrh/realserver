@@ -2,18 +2,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var persons = Schema({
-    _id:Schema.Types.ObjectId,
-    fullname:String,
+    fullname:{
+        type:String,
+        unique:true
+    },
     nationality:String,
-    phonenummber:Number,
+    phonenummber:{
+        type:Number,
+        unique:true
+    },
     birthday:String,
-    tc:Number,
+    tc:{
+        type:Number,
+        unique:true
+    },
     dateadd:String,
     sex:String,
     note:String,
     Priority:Number,
     houseid:Schema.Types.ObjectId,
-    deprtement:String
+    departement:String
 });
 
 module.exports=mongoose.model('persons',persons);
