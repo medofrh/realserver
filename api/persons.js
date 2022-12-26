@@ -1,6 +1,7 @@
 const express = require ('express');
 const Router = express.Router();
 const persons = require("../models/persons");
+const houses = require("../models/houses");
 
 require("../db_connection/db");
 const token = require ("../db_connection/db");
@@ -45,5 +46,15 @@ Router.post('/personadd',token.authenticatetoken,function (req,res){
     }
 });
 
+Router.get("/personfind",async function (req,res){
+    var houseID = req.body.houseid;
+
+await persons.find({houseid:houseID})
+    .populate("houseid")
+    .exec()
+    .then(result=>{
+        res.json(result)
+    })
+});
 
 module.exports = Router

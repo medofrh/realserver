@@ -20,7 +20,10 @@ var persons = Schema({
     sex:String,
     note:String,
     Priority:Number,
-    houseid:Schema.Types.ObjectId,
+    houseid:{
+        type:Schema.Types.ObjectId,
+        ref:"houses"
+    },
     departement:String
 });
 
