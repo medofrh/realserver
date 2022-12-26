@@ -9,7 +9,7 @@ Router.get("/housesfind",token.authenticatetoken,function (req,res){
     var zone = req.query.zone;
     if(zone !== undefined){
         houses
-        .find()
+        .find({HouseZone:zone})
         .exec()
         .then(result=>{
             res.status(200).json(result);
