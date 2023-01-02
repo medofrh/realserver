@@ -60,5 +60,19 @@ Router.get("/personfind", function (req,res){
         })
 });
 
+Router.get("/personrequest",token.authenticatetoken,function (req,res){
+    var personID = req.query.personid;
+
+    console.log(personID);
+    persons
+    .findOne({_id:personID})
+    .exec()
+    .then(result=>{
+        res.json(result)
+    })
+    .catch(err=>{
+        res.sendStatus(403);
+    })
+})
 
 module.exports = Router
