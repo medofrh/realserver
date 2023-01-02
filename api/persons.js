@@ -5,6 +5,7 @@ const houses = require("../models/houses");
 
 require("../db_connection/db");
 const token = require ("../db_connection/db");
+const e = require('express');
 
 Router.post('/personadd',token.authenticatetoken,function (req,res){
     const timeElapsed = Date.now();
@@ -63,7 +64,6 @@ Router.get("/personfind", function (req,res){
 Router.get("/personrequest",token.authenticatetoken,function (req,res){
     var personID = req.query.personid;
 
-    console.log(personID);
     persons
     .findOne({_id:personID})
     .exec()
@@ -73,6 +73,66 @@ Router.get("/personrequest",token.authenticatetoken,function (req,res){
     .catch(err=>{
         res.sendStatus(403);
     })
+});
+
+Router.post("/personupdate",token.authenticatetoken,function (req,res){
+    var personObj = req.body.person;
+    if(personObj._id==undefined||personObj._id==""){
+        res.sendStatus(403);
+    }else{
+        persons
+        .findByIdAndUpdate(personObj._id,personObj)
+        .exec()
+        .then(result=>{
+            res.json(result);
+        })
+        .catch(err=>{
+            res.json(err);
+        })
+    }
+});
+
+Router.post('/addpersonpriority',token.authenticatetoken,function (req,res){
+    var personID = req.body.personid
+    var priority = req.body.priority
+
+    console.log(personID,"\n",priority)
+    if(personID!==undefined&&priority!==undefined){
+        persons
+        .findOneAndUpdate({_id:personID},{Priority:priority})
+        .exec()
+        .then(result=>{
+            res.status(200).json(result)
+        })
+        .catch(err=>{
+            res.status(403).json(err)
+        })
+    }else{
+        res.sendStatus(403)
+    }
+
+})
+
+Router.delete("/delperson",token.authenticatetoken,function(req,res){
+    var personID = req.body.personid;
+   
+    if(personID.constructor==Array){
+        if(personID.length!==0){
+            persons
+            .deleteMany({_id:{$in:personID}})
+            .exec()
+            .then(result=>{
+                res.json(result);
+            })
+            .catch(err=>{
+                res.json(err);
+            })
+        }else{
+            res.sendStatus(403)
+        }
+    }else{
+        res.sendStatus(403)
+    }
 })
 
 module.exports = Router
