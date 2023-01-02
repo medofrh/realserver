@@ -46,15 +46,19 @@ Router.post('/personadd',token.authenticatetoken,function (req,res){
     }
 });
 
-Router.get("/personfind",async function (req,res){
-    var houseID = req.body.houseid;
+Router.get("/personfind", function (req,res){
+    var houseID = req.query.houseid;
 
-await persons.find({houseid:houseID})
-    .populate("houseid")
-    .exec()
-    .then(result=>{
-        res.json(result)
-    })
+    persons.find({houseid:houseID})
+        .populate("houseid")
+        .exec()
+        .then(result=>{
+            res.json(result)
+        })
+        .catch(err=>{
+            res.sendStatus(403);
+        })
 });
+
 
 module.exports = Router
