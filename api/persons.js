@@ -5,7 +5,6 @@ const houses = require("../models/houses");
 
 require("../db_connection/db");
 const token = require ("../db_connection/db");
-const e = require('express');
 
 Router.post('/personadd',token.authenticatetoken,function (req,res){
     const timeElapsed = Date.now();
