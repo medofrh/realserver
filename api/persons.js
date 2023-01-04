@@ -23,7 +23,7 @@ Router.post('/personadd',token.authenticatetoken,function (req,res){
         houseid:req.body._id,
         departement:req.body.departement
     };
-    function isEmpty(obj) {
+    function isnotEmpty(obj) {
         for (var key in obj) {
             if (obj[key] == undefined || obj[key]==""){
                 return false;
@@ -31,7 +31,7 @@ Router.post('/personadd',token.authenticatetoken,function (req,res){
         }
         return true;
     }
-    if(isEmpty(person)==true){
+    if(isnotEmpty(person)==true){
         var personadd = new persons(person)
         personadd
         .save()
