@@ -1,13 +1,27 @@
 const mongoose =require('mongoose');
 const Schema = mongoose.Schema;
 
-const campaigns = Schema({
+/*const campaigns = Schema({
         _id:Schema.Types.ObjectId,
         zone:Array,
         houses:[
                 {
                 housename:String,
                 houseid:Schema.Types.ObjectId
+                }
+        ],
+        item:String,
+        count:Number,
+        start_c:Date,
+        end_c:Date
+    });
+    */
+const campaigns = Schema({
+        zone:String,
+        houses:[
+                {
+                        type:Schema.Types.ObjectId,
+                        ref:"houses"
                 }
         ],
         item:String,

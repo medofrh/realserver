@@ -23,16 +23,9 @@ Router.post('/personadd',token.authenticatetoken,function (req,res){
         houseid:req.body._id,
         departement:req.body.departement
     };
-    function isnotEmpty(obj) {
-        for (var key in obj) {
-            if (obj[key] == undefined || obj[key]==""){
-                return false;
-            }
-        }
-        return true;
-    }
+
     if(isnotEmpty(person)==true){
-        var personadd = new persons(person)
+        var personadd = new persons(person);
         personadd
         .save()
         .then(result=>{
@@ -133,5 +126,14 @@ Router.delete("/delperson",token.authenticatetoken,function(req,res){
         res.sendStatus(403)
     }
 })
+
+function isnotEmpty(obj) {
+    for (var key in obj) {
+        if (obj[key] == undefined || obj[key]==""){
+            return false;
+        }
+    }
+    return true;
+}
 
 module.exports = Router
