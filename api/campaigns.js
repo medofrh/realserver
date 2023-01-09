@@ -40,7 +40,7 @@ Router.post("/addcampaign",token.authenticatetoken,function(req,res){
     }
 });
 
-Router.get("/reportcampaign",token.authenticatetoken,function(req,res){
+Router.get("/reportnowcampaign",token.authenticatetoken,function(req,res){
     var query = {
         type:req.query.type,
         Mdate:req.query.Mdate
@@ -52,6 +52,34 @@ Router.get("/reportcampaign",token.authenticatetoken,function(req,res){
     .populate("houses")
     .exec()
     .then(async result=>{
+            await campaign_print(result,randomNumber,()=>{
+            var file = fs.createReadStream(path);
+            var stat = fs.statSync(path);
+            res.setHeader('Content-Length', stat.size);
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+            file.pipe(res); 
+        });
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(403).json(err);
+    })
+})
+
+Router.get("/reportendcampaign",token.authenticatetoken,function(req,res){
+    var query = {
+        type:req.query.type,
+        Mdate:req.query.Mdate
+    }
+    let randomNumber = Math.floor(Math.random() * 999999) + 1;
+    var path = `./pdf/${randomNumber}.pdf`;
+    campaigns
+    .find({end_c:{$lt:query.Mdate}})
+    .populate("houses")
+    .exec()
+    .then(async result=>{
+        console.log(result);
             await campaign_print(result,randomNumber,()=>{
             var file = fs.createReadStream(path);
             var stat = fs.statSync(path);
