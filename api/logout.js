@@ -14,11 +14,11 @@ Router.post("/logout",function(req,res){
     }else{
         Users.findOneAndUpdate({token:token}, {$set:{token:""}}, {new: true}, (err, doc) => {
             if (err == null) {
-                res.sendStatus(403).json(doc);
+                res.sendStatus(403);
                 // console.log(doc)
             }else{
                 // console.log(err,"nas")
-                res.sendStatus(200).json(err);
+                res.sendStatus(200);
             }
         });
     }

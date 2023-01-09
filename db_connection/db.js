@@ -3,7 +3,7 @@ const jwt = require ("jsonwebtoken");
 const users = require('../models/users');
 require("dotenv").config();
 
-mongoose.connect('mongodb://medo:M6e3d3o6@192.168.1.225:27017/medo?connectTimeoutMS=1000&authSource=admin');
+mongoose.connect('mongodb://medo:M6e3d3o6@127.0.0.1:27017/medo?connectTimeoutMS=10&authSource=admin');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {

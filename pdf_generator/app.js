@@ -1,18 +1,8 @@
 const PDFDocument = require("./pdfkit-tables");
 const fs = require('fs');
 
-
-const address = "MAVİ KELEBEK UÖD KemerkOpru Mah. Sadirvan Cad. Kulaklar is merkezi no: 5 Turkey, bartin 74100";
-
 function person_print (persons,num,callback){
-    // check if have old file (Temporary status)
-    // try {
-        //     fs.unlinkSync(`./pdf/${num}.pdf`);
-        //     } catch (error) {
-            //     console.error('there was an error:', error.message);
-            // }
-            // Create a pdf file
-            // let file = fs.createWriteStream(`./pdf/${s}.pdf`);
+    const address = "MAVİ KELEBEK UÖD KemerkOpru Mah. Sadirvan Cad. Kulaklar is merkezi no: 5 Turkey, bartin 74100";
     // Create a document
     const doc = new PDFDocument({size: 'A4'});
     const writeStream = fs.createWriteStream(`./pdf/${num}.pdf`);
@@ -51,6 +41,14 @@ function person_print (persons,num,callback){
     writeStream.on('finish',() => {
         writeStream.close();
         callback();
+    })
+    // delete file after callback
+    writeStream.on('close',()=>{
+        try {
+            fs.unlinkSync(`./pdf/${num}.pdf`);
+            } catch (error) {
+                console.error('there was an error:', error.message);
+            }
     })
     writeStream.on('error', (error) => {
         console.error(error);
