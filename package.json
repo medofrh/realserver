@@ -9,10 +9,12 @@
   "author": "medo",
   "license": "ISC",
   "dependencies": {
+    "blob-stream": "^0.1.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "fast-blob-stream": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.0",
     "pdfkit": "^0.13.0"

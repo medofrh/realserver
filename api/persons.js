@@ -1,10 +1,12 @@
 const express = require ('express');
 const Router = express.Router();
 const persons = require("../models/persons");
-const houses = require("../models/houses");
+const person_print = require ("../pdf_generator/app");
+const fs = require("fs");
 
 require("../db_connection/db");
 const token = require ("../db_connection/db");
+const { Stream } = require('stream');
 
 Router.post('/personadd',token.authenticatetoken,function (req,res){
     const timeElapsed = Date.now();
@@ -125,6 +127,54 @@ Router.delete("/delperson",token.authenticatetoken,function(req,res){
     }else{
         res.sendStatus(403)
     }
+})
+
+const PDFDocument = require ("pdfkit");
+Router.get("/reporthouse", function(req,res){
+    var houseid = req.query.houseid;
+    const randomNumber = Math.floor(Math.random() * 999999) + 1;
+    var path = `./pdf/${randomNumber}.pdf`;
+    if(isnotEmpty(houseid)==true){
+        persons
+        .find({houseid:houseid})
+        .populate("houseid")
+        .exec()
+        .then(async result=>{
+            await person_print(result,randomNumber,()=>{
+                var file = fs.createReadStream(path);
+                var stat = fs.statSync(path);
+                res.setHeader('Content-Length', stat.size);
+                res.setHeader('Content-Type', 'application/pdf');
+                res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+                file.pipe(res);
+                
+            });
+        })
+        .catch(err=>{
+            res.sendStatus(403);
+            console.log("err "+err)
+        })
+    }
+    
+})
+
+Router.get("/test",(req,res)=>{
+    res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader('Content-Disposition', 'attachment; filename=document.pdf');
+    const doc = new PDFDocument();
+
+// Pipe the document to a BlobStream
+
+
+// Add content to the document
+doc.text('Hello, world!');
+
+// End the document
+doc.end();
+
+// When the document is finished, get the blob
+
+
 })
 
 function isnotEmpty(obj) {
