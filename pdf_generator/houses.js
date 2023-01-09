@@ -84,17 +84,18 @@ module.exports = {
                             /*** End header ***/
 
         const table = {
-            headers: ["fullname", "nationality", "Phone", "Birthday", "tc", "departement", "dateadd", "sex", "note" ],
+            headers: ["fullname", "nationality", "Phone", "Birthday", "tc", "departement", "person.houseid.HouseName", "sex", "note" ],
             rows: []
         };
 
         for (const person of data) {
-            if(person.houseid!==null){
+            console.log(person)
+            if(person.houseid!=null){
                 if(person.Priority==query.priority){
                     if(person.sex==query.sex){
-                        table.rows.push([person.fullname, person.nationality, person.phonenummber, person.birthday, person.tc, person.departement, person.dateadd, person.sex, person.note])
+                        table.rows.push([person.fullname, person.nationality, person.phonenummber, person.birthday, person.tc, person.departement, person.houseid.HouseName, person.sex, person.note])
                     }else if(query.sex == "ALL"){
-                        table.rows.push([person.fullname, person.nationality, person.phonenummber, person.birthday, person.tc, person.departement, person.dateadd, person.sex, person.note])
+                        table.rows.push([person.fullname, person.nationality, person.phonenummber, person.birthday, person.tc, person.departement, person.houseid.HouseName, person.sex, person.note])
                     }
                 }
             }
