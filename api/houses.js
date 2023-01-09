@@ -1,9 +1,11 @@
 const express = require ('express');
 const Router = express.Router();
 const houses = require("../models/houses");
+const fs = require("fs");
 
 require("../db_connection/db");
 const token = require ("../db_connection/db");
+const house_print = require('../pdf_generator/houses');
 
 Router.get("/housesfind",token.authenticatetoken,function (req,res){
     var zone = req.query.zone;
@@ -94,5 +96,40 @@ Router.post("/housedel",token.authenticatetoken,function (req,res){
     }
     
 });
+
+Router.get("/reportzone",function(req,res){
+    var zone = req.query.zone;
+    const randomNumber = Math.floor(Math.random() * 999999) + 1;
+    var path = `./pdf/${randomNumber}.pdf`;
+    if(isnotEmpty(zone)==true){
+        houses
+        .find({HouseZone:zone})
+        .exec()
+        .then(async result=>{
+            await house_print(result,randomNumber,()=>{
+                var file = fs.createReadStream(path);
+                var stat = fs.statSync(path);
+                res.setHeader('Content-Length', stat.size);
+                res.setHeader('Content-Type', 'application/pdf');
+                res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+                file.pipe(res);
+            });
+        })
+        .catch(err=>{
+            res.sendStatus(403);
+            console.log("err "+err)
+        })
+    }
+})
+
+function isnotEmpty(obj) {
+    for (var key in obj) {
+        if (obj[key] == undefined || obj[key]==""){
+            return false;
+        }
+    }
+    return true;
+}
+
 
 module.exports = Router

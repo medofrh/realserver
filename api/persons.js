@@ -1,7 +1,7 @@
 const express = require ('express');
 const Router = express.Router();
 const persons = require("../models/persons");
-const person_print = require ("../pdf_generator/app");
+const person_print = require ("../pdf_generator/person");
 const fs = require("fs");
 
 require("../db_connection/db");
@@ -129,8 +129,7 @@ Router.delete("/delperson",token.authenticatetoken,function(req,res){
     }
 })
 
-const PDFDocument = require ("pdfkit");
-Router.get("/reporthouse", function(req,res){
+Router.get("/reporthouse",token.authenticatetoken, function(req,res){
     var houseid = req.query.houseid;
     const randomNumber = Math.floor(Math.random() * 999999) + 1;
     var path = `./pdf/${randomNumber}.pdf`;
@@ -156,25 +155,6 @@ Router.get("/reporthouse", function(req,res){
         })
     }
     
-})
-
-Router.get("/test",(req,res)=>{
-    res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', 'attachment; filename=document.pdf');
-    const doc = new PDFDocument();
-
-// Pipe the document to a BlobStream
-
-
-// Add content to the document
-doc.text('Hello, world!');
-
-// End the document
-doc.end();
-
-// When the document is finished, get the blob
-
-
 })
 
 function isnotEmpty(obj) {
