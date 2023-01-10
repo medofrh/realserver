@@ -79,7 +79,6 @@ Router.get("/reportendcampaign",token.authenticatetoken,function(req,res){
     .populate("houses")
     .exec()
     .then(async result=>{
-        console.log(result);
             await campaign_print(result,randomNumber,()=>{
             var file = fs.createReadStream(path);
             var stat = fs.statSync(path);
